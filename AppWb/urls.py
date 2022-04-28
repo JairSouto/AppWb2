@@ -9,4 +9,6 @@ urlpatterns = [
     path('equipos', views.equipos, name='Equipos'),
     path('cursos',views.cursos, name='Cursos'),
     path('equiposFormularios',views.equiposFormularios, name='EquiposFormularios'),
+    path('busquedaSeguidores', views.busquedaSeguidores, name='BusquedaSeguidores'),
+    path('buscar/',views.buscar),
 ]
