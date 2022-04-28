@@ -12,4 +12,4 @@ def equipos(request):
      return render(request,'AppWb/equipos.html')
 
 def cursos(request):
-    return render(request,'AppWb/TiposDmateriales.html')
+    return render(request,'AppWb/cursos.html')
