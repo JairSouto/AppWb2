@@ -1,21 +1,24 @@
-from calendar import c
-from errno import EADDRNOTAVAIL
+
 from django.db import models
 
 # Create your models here.
-class Empleados(models.Model):
+class Equipos(models.Model):
     nombre = models.CharField(max_length=40)
-    grupo = models.IntegerField()
+    
     fechaDeRegistro= models.DateField()
-    salario = models.IntegerField()
-    email= models.EmailField()
-class TiposDTrabajo(models.Model):
-    ocupacion = models.CharField(max_length=30)
-    horas_d_empleo = models.IntegerField()
-    edadEnElTrabajo = models.IntegerField()
-class TipoDmaterial(models.Model):
-    material = models.CharField(max_length=50)
-    peso = models.IntegerField()
+
+    seguidores = models.IntegerField()
+
+    
+class Asociados(models.Model):
+    nombre = models.CharField(max_length=40)
+    Redes_Sociales = models.CharField(max_length=120)
+
+class Cursos(models.Model):
+    nombre = models.CharField(max_length=70)
+    jugadorPro = models.CharField(max_length=70)
+    Duracion = models.CharField(max_length=50)
+
 
 
   

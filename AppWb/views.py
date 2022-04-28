@@ -1,16 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from AppWb.models import Empleados
 
 # Create your views here.
 def inicio(request):
     return render(request,'AppWb/inicio.html')
-def empleados(request):
-  return render(request,'AppWb/empleos.html')
+def asociados(request):
+  return render(request,'AppWb/asociados.html')
 
-def TiposDTrabajo(request):
-     return render(request,'AppWb/TiposDTrabajo')
+def equipos(request):
+     return render(request,'AppWb/equipos.html')
 
-def TiposDmateriales(request):
+def cursos(request):
     return render(request,'AppWb/TiposDmateriales.html')

@@ -5,7 +5,7 @@ from AppWb import views
 urlpatterns = [
  
     path('', views.inicio),
-    path('empleados',views.empleados, name='Empleados'),
-    path('TiposDTrabajo', views.TiposDTrabajo),
-    path('Materiales',views.TiposDmateriales),
+    path('asociados',views.asociados, name='Empleados'),
+    path('equipos', views.equipos),
+    path('cursos',views.cursos),
 ]
