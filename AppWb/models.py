@@ -12,12 +12,12 @@ class Equipos(models.Model):
     
 class Asociados(models.Model):
     nombre = models.CharField(max_length=40)
-    Redes_Sociales = models.CharField(max_length=120)
+    redes_sociales = models.CharField(max_length=30)
 
 class Cursos(models.Model):
     nombre = models.CharField(max_length=70)
-    jugadorPro = models.CharField(max_length=70)
-    Duracion = models.CharField(max_length=50)
+    jugadorpro = models.CharField(max_length=70)
+    duracion = models.CharField(max_length=50)
 
 
 

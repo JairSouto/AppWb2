@@ -3,23 +3,51 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from AppWb.forms import EquiposFormularios
-from AppWb.models import Equipos
+from AppWb.forms import EquiposFormularios, AsociadosFormularios, CursosFormularios
+from AppWb.models import Asociados, Cursos, Equipos
 
 
 # Create your views here.
 def inicio(request):
     return render(request,'AppWb/inicio.html')
 def asociados(request):
-  return render(request,'AppWb/asociados.html')
+    if request.method=='POST':
+        miFormulario= AsociadosFormularios(request.POST)
+        print(miFormulario)
 
-def equipos(request):
-     return render(request,'AppWb/equipos.html')
+
+        if miFormulario.is_valid:
+            informacion = miFormulario.cleaned_data
+
+            asociados=Asociados(nombre=informacion['nombre'], redes_sociales=informacion['redes_sociales'])
+            asociados.save()
+
+            return render(request,"AppWb/inicio.html")
+    else:
+        miFormulario= AsociadosFormularios()
+    return render(request,'AppWb/asociados.html', {'miFormulario':miFormulario})
+
+
+
+
 
 def cursos(request):
-    return render(request,'AppWb/cursos.html')
+    if request.method=='POST':
+        miFormulario= CursosFormularios(request.POST)
+        print(miFormulario)
 
-def equiposFormularios(request):
+
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+
+            cursos=Cursos(nombre=informacion['nombre'], jugadorpro=informacion['jugadorpro'], duracion=informacion['duracion'])
+            cursos.save()
+
+            return render(request,"AppWb/inicio.html")
+    else:
+        miFormulario= CursosFormularios()
+    return render(request,'AppWb/cursos.html', {'miFormulario':miFormulario})
+def equipos(request):
     if request.method=='POST':
         miFormulario= EquiposFormularios(request.POST)
         print(miFormulario)
@@ -34,7 +62,8 @@ def equiposFormularios(request):
             return render(request,"AppWb/inicio.html")
     else:
         miFormulario= EquiposFormularios()
-    return render(request,'AppWb/equiposFormularios.html', {'miFormulario':miFormulario})
+    return render(request,'AppWb/equipos.html', {'miFormulario':miFormulario})
+
 def busquedaSeguidores(request):
     return render(request, 'AppWb/busquedaSeguidores.html')
 
